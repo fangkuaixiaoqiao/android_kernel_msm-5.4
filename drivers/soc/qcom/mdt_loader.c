@@ -83,7 +83,7 @@ EXPORT_SYMBOL_GPL(qcom_mdt_get_size);
  *
  * Return: pointer to data, or ERR_PTR()
  */
-void *qcom_mdt_read_metadata(const struct firmware *fw, size_t *data_len)
+void *qcom_mdt_read_metadata(const struct device *dev, firmware *fw, size_t *data_len)
 {
 	const struct elf32_phdr *phdrs;
 	const struct elf32_hdr *ehdr;
