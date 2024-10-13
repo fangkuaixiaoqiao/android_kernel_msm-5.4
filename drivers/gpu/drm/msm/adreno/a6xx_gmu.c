@@ -70,7 +70,7 @@ static irqreturn_t a6xx_hfi_irq(int irq, void *data)
 	return IRQ_HANDLED;
 }
 
-bool a6xx_gmu_sptprac_is_on(struct a6xx_gmu *gmu)
+static bool a6xx_gmu_sptprac_is_on(struct a6xx_gmu *gmu)
 {
 	u32 val;
 
@@ -86,7 +86,7 @@ bool a6xx_gmu_sptprac_is_on(struct a6xx_gmu *gmu)
 }
 
 /* Check to see if the GX rail is still powered */
-bool a6xx_gmu_gx_is_on(struct a6xx_gmu *gmu)
+static bool a6xx_gmu_gx_is_on(struct a6xx_gmu *gmu)
 {
 	u32 val;
 
@@ -191,7 +191,7 @@ static bool a6xx_gmu_check_idle_level(struct a6xx_gmu *gmu)
 }
 
 /* Wait for the GMU to get to its most idle state */
-int a6xx_gmu_wait_for_idle(struct a6xx_gmu *gmu)
+static int a6xx_gmu_wait_for_idle(struct a6xx_gmu *gmu)
 {
 	return spin_until(a6xx_gmu_check_idle_level(gmu));
 }
@@ -1164,7 +1164,7 @@ static int a6xx_gmu_get_irq(struct a6xx_gmu *gmu, struct platform_device *pdev,
 	return irq;
 }
 
-void a6xx_gmu_remove(struct a6xx_gpu *a6xx_gpu)
+static void a6xx_gmu_remove(struct a6xx_gpu *a6xx_gpu)
 {
 	struct a6xx_gmu *gmu = &a6xx_gpu->gmu;
 
