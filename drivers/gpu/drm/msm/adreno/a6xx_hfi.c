@@ -271,7 +271,7 @@ static int a6xx_hfi_send_test(struct a6xx_gmu *gmu)
 		NULL, 0);
 }
 
-int a6xx_hfi_start(struct a6xx_gmu *gmu, int boot_state)
+static int a6xx_hfi_start(struct a6xx_gmu *gmu, int boot_state)
 {
 	int ret;
 
@@ -306,7 +306,7 @@ int a6xx_hfi_start(struct a6xx_gmu *gmu, int boot_state)
 	return 0;
 }
 
-void a6xx_hfi_stop(struct a6xx_gmu *gmu)
+static void a6xx_hfi_stop(struct a6xx_gmu *gmu)
 {
 	int i;
 
@@ -348,7 +348,7 @@ static void a6xx_hfi_queue_init(struct a6xx_hfi_queue *queue,
 	header->write_index = 0;
 }
 
-void a6xx_hfi_init(struct a6xx_gmu *gmu)
+static void a6xx_hfi_init(struct a6xx_gmu *gmu)
 {
 	struct a6xx_gmu_bo *hfi = gmu->hfi;
 	struct a6xx_hfi_queue_table_header *table = hfi->virt;
