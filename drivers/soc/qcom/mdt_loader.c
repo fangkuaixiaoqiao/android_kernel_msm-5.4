@@ -87,6 +87,7 @@ void *qcom_mdt_read_metadata(const struct firmware *fw, size_t *data_len)
 {
 	const struct elf32_phdr *phdrs;
 	const struct elf32_hdr *ehdr;
+	struct device *dev;
 	size_t hash_offset;
 	size_t hash_size;
 	size_t ehdr_size;
