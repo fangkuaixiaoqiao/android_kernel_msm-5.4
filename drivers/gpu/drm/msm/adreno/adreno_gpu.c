@@ -130,7 +130,7 @@ out:
 	return ret;
 }
 
-int adreno_zap_shader_load(struct msm_gpu *gpu, u32 pasid)
+static int adreno_zap_shader_load(struct msm_gpu *gpu, u32 pasid)
 {
 	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
 	struct platform_device *pdev = gpu->pdev;
@@ -481,7 +481,7 @@ void adreno_flush(struct msm_gpu *gpu, struct msm_ringbuffer *ring)
 	adreno_gpu_write(adreno_gpu, REG_ADRENO_CP_RB_WPTR, wptr);
 }
 
-bool adreno_idle(struct msm_gpu *gpu, struct msm_ringbuffer *ring)
+static bool adreno_idle(struct msm_gpu *gpu, struct msm_ringbuffer *ring)
 {
 	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
 	uint32_t wptr = get_wptr(ring);
